@@ -82,6 +82,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
+				<div>Press Space Bar</div>
 				<div className="flex-grid-edge">
 					<Square {...this.state} location={0} />
 					<Square {...this.state} location={1} />
