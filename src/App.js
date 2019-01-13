@@ -2,126 +2,131 @@ import React, { Component } from 'react';
 import './App.css';
 import { good, bad } from './animations';
 import Square from './square';
-import { PRIZEVALUES } from './random-values';
 
 class App extends Component {
 	constructor() {
 		super();
 		this.state = {
-			image: ''
+			image: '',
+			selected: 3,
+			randomIndex: 0,
+			tickCouter: 0
 		};
 	}
 
-	componentDidUnmount() {}
+	componentDidMount() {
+		this.interval = setInterval(() => this.tick(), 800);
+	}
+	componentWillUnmount() {
+		clearInterval(this.interval);
+	}
+	tick() {
+		const newTick = this.state.tickCouter === 3 ? 0 : this.state.tickCouter + 1;
+		this.setState({ tickCouter: newTick });
 
-	randomSquareValue() {
-		const number = Math.floor(Math.random() * Math.floor(100));
-		if (number < 50) {
-			return number;
-		} else if (number < 70) {
-			return 'prize';
-		} else {
-			return 'whammy';
+		if (newTick === 0) {
+			const newIndex = this.state.randomIndex === 3 ? 0 : this.state.randomIndex + 1;
+			this.setState({ randomIndex: newIndex });
 		}
+
+		this.setState({ selected: Math.floor(Math.random() * 24) });
 	}
 
 	render() {
-		fetch('https://gph.is/1LaRgeN').then((response) => response.text()).then((text) => {
-			const parser = new DOMParser();
-			const htmlDocument = parser.parseFromString(text, 'text/html');
-			const section = htmlDocument.documentElement.querySelector('head');
-			const meta = section.querySelector('meta[property="og:image"]');
-			console.log(meta.content);
-			this.setState({ image: meta.content });
-		});
+		// fetch('https://gph.is/1LaRgeN').then((response) => response.text()).then((text) => {
+		// 	const parser = new DOMParser();
+		// 	const htmlDocument = parser.parseFromString(text, 'text/html');
+		// 	const section = htmlDocument.documentElement.querySelector('head');
+		// 	const meta = section.querySelector('meta[property="og:image"]');
+		// 	console.log(meta.content);
+		// 	this.setState({ image: meta.content });
+		// });
 		const randomSet = 0;
 		return (
 			<div className="App">
-				<div class="flex-grid-edge">
-					<div class="col">
-						<Square value={PRIZEVALUES[randomSet][0]} />
+				<div className="flex-grid-edge">
+					<div className="col">
+						<Square {...this.state} location={0} />
 					</div>
-					<div class="col">
-						<Square value={PRIZEVALUES[randomSet][1]} />
+					<div className="col">
+						<Square {...this.state} location={1} />
 					</div>
-					<div class="col">
-						<Square value={PRIZEVALUES[randomSet][2]} />
+					<div className="col">
+						<Square {...this.state} location={2} />
 					</div>
-					<div class="col">
-						<Square value={PRIZEVALUES[randomSet][3]} />
+					<div className="col">
+						<Square {...this.state} location={3} />
 					</div>
-					<div class="col">
-						<Square value={PRIZEVALUES[randomSet][4]} />
+					<div className="col">
+						<Square {...this.state} location={4} />
 					</div>
-					<div class="col">
-						<Square value={PRIZEVALUES[randomSet][5]} />
+					<div className="col">
+						<Square {...this.state} location={5} />
 					</div>
-					<div class="col">
-						<Square value={PRIZEVALUES[randomSet][6]} />
+					<div className="col">
+						<Square {...this.state} location={6} />
 					</div>
-					<div class="col">
-						<Square value={PRIZEVALUES[randomSet][7]} />
+					<div className="col">
+						<Square {...this.state} location={7} />
 					</div>
 				</div>
-				<div class="flex-grid-center">
-					<div class="column-center-side">
-						<div class="green-column">
-							<Square value={PRIZEVALUES[randomSet][16]} />
+				<div className="flex-grid-center">
+					<div className="column-center-side">
+						<div className="green-column">
+							<Square {...this.state} location={16} />
 						</div>
-						<div class="green-column">
-							<Square value={PRIZEVALUES[randomSet][17]} />
+						<div className="green-column">
+							<Square {...this.state} location={17} />
 						</div>
-						<div class="green-column">
-							<Square value={PRIZEVALUES[randomSet][18]} />
+						<div className="green-column">
+							<Square {...this.state} location={18} />
 						</div>
-						<div class="green-column">
-							<Square value={PRIZEVALUES[randomSet][19]} />
-						</div>
-					</div>
-					<div class="column-center-middle">
-						<div class="blue-column">
-							<img src={this.state.image} alt="logo" />
+						<div className="green-column">
+							<Square {...this.state} location={19} />
 						</div>
 					</div>
-					<div class="column-center-side">
-						<div class="green-column">
-							<Square value={PRIZEVALUES[randomSet][20]} />
+					<div className="column-center-middle">
+						<div className="blue-column">{/* <img src={this.state.image} alt="logo" /> */}</div>
+					</div>
+					<div className="column-center-side">
+						<div className="green-column">
+							<Square {...this.state} location={20} />
 						</div>
-						<div class="green-column">
-							<Square value={PRIZEVALUES[randomSet][21]} />
+						<div className="green-column">
+							<Square {...this.state} location={21} />
 						</div>
-						<div class="green-column">
-							<Square value={PRIZEVALUES[randomSet][22]} />
+						<div className="green-column">
+							<Square {...this.state} location={22} />
 						</div>
-						<div class="green-column">
-							<Square value={PRIZEVALUES[randomSet][23]} />
+						<div className="green-column">
+							<Square {...this.state} location={23} />
 						</div>
 					</div>
 				</div>
-				<div class="flex-grid-edge">
-					<div class="col">
-						<Square value={PRIZEVALUES[randomSet][8]} />
+				<div className="flex-grid-edge">
+					<div className="col">
+						<Square {...this.state} location={8} />
 					</div>
-					<div class="col">
-						<Square value={PRIZEVALUES[randomSet][9]} />
+					<div className="col">
+						<Square {...this.state} location={9} />
 					</div>
-					<div class="col">
-						<Square value={PRIZEVALUES[randomSet][10]} />
+					<div className="col">
+						<Square {...this.state} location={10} />
 					</div>
-					<div class="col">
-						<Square value={PRIZEVALUES[randomSet][11]} />
+					<div className="col">
+						<Square {...this.state} location={11} />
 					</div>
-					<div class="col">
-						<Square value={PRIZEVALUES[randomSet][12]} />
+					<div className="col">
+						<Square {...this.state} location={12} />
 					</div>
-					<div class="col">
-						<Square value={PRIZEVALUES[randomSet][13]} />
+					<div className="col">
+						<Square {...this.state} location={13} />
 					</div>
-					<div class="col">
-						<Square value={PRIZEVALUES[randomSet][14]} />
+					<div className="col">
+						<Square {...this.state} location={14} />
 					</div>
-					<div class="col">
-						<Square value={PRIZEVALUES[randomSet][15]} />
+					<div className="col">
+						<Square {...this.state} location={15} />
 					</div>
 				</div>
 			</div>

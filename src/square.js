@@ -1,5 +1,6 @@
 import React from 'react';
+import { PRIZEVALUES } from './random-values';
 
-const Square = ({ value, selected }) => <div>{value}</div>;
+const Square = ({ selected, randomIndex, location }) => <div>{PRIZEVALUES[randomIndex][location]}</div>;
 
 export default Square;
