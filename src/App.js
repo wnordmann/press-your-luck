@@ -71,7 +71,8 @@ class App extends Component {
 			image = BAD[Math.floor(Math.random() * BAD.length)];
 		}
 		console.log(image);
-		fetch(image).then((response) => response.text()).then((text) => {
+		const proxy = 'https://cors-anywhere.herokuapp.com/';
+		fetch(proxy + image).then((response) => response.text()).then((text) => {
 			const parser = new DOMParser();
 			const htmlDocument = parser.parseFromString(text, 'text/html');
 			const section = htmlDocument.documentElement.querySelector('head');
