@@ -29,7 +29,6 @@ export const GOOD = [
 	'https://gph.is/1NUYPIS',
 	'http://gph.is/1l1j3VP',
 	'https://gph.is/2yokRFq',
-	'https://gph.is/2rNTBgi',
 	'https://gph.is/2zFDODX',
 	'https://gph.is/2RB4nAE',
 	'https://gph.is/2GBvCGK',
@@ -41,7 +40,6 @@ export const GOOD = [
 	'https://gph.is/1UOkDft',
 	'https://gph.is/2cfUFmG',
 	'https://gph.is/2g3nxfX',
-	'https://gph.is/2IrX66n',
 	'https://gph.is/1Bgovhm',
 	'https://gph.is/1PWJa1R',
 	'https://gph.is/14nhF3B',
@@ -62,7 +60,6 @@ export const GOOD = [
 	'http://gph.is/1PWJa1R',
 	'https://gph.is/1TL5s3R',
 	'https://gph.is/2QUKtjM',
-	'http://gph.is/1PGe5P9',
 	'https://gph.is/1LgXBpe',
 	'https://gph.is/129movC',
 	'https://gph.is/1wWnRAY',
@@ -78,6 +75,9 @@ export const GOOD = [
 ];
 
 export const BAD = [
+	'https://gph.is/2IrX66n',
+	'https://gph.is/2rNTBgi',
+	'http://gph.is/1PGe5P9',
 	'https://gph.is/1LaRgeN',
 	'https://gph.is/13K9ldQ',
 	'https://gph.is/28JmpPF',

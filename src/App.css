@@ -69,11 +69,11 @@ body {
 	margin: 0 0 20px 0;
 }
 .selected {
-  padding: 20px;
+	padding: 20px;
 	background: green;
 }
 .unselected {
-  padding: 20px;
+	padding: 20px;
 	background: salmon;
 }
 .flex-grid-center {
@@ -101,4 +101,7 @@ body {
 .blue-column {
 	background-color: lightblue;
 	height: 100%;
+}
+.giphy {
+	max-height: 300px;
 }
