@@ -1,113 +1,104 @@
 .App {
-  text-align: center;
+	text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+	animation: App-logo-spin infinite 20s linear;
+	height: 40vmin;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+	background-color: #282c34;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+	color: white;
 }
 
 .App-link {
-  color: #61dafb;
+	color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
 .flex-grid {
-  display: flex;
+	display: flex;
 }
 .flex-grid .col {
-  flex: 1;
+	flex: 1;
 }
 .flex-grid-edge {
-  display: flex;
-  justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }
 .flex-grid-edge .col {
-  width: 15%;
-  margin: 10px;
+	width: 15%;
+	margin: 10px;
 }
 flex-grid-center {
-  display: flex;
-  flex-direction: row;
+	display: flex;
+	flex-direction: row;
 }
 @media (max-width: 400px) {
-  .flex-grid,
-  .flex-grid-thirds {
-    display: block;
-    .col {
-      width: 100%;
-      margin: 0 0 10px 0;
-    }
-  }
+	.flex-grid,
+	.flex-grid-thirds {
+		display: block;
+		.col {
+			width: 100%;
+			margin: 0 0 10px 0;
+		}
+	}
 }
-
-
-
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 body {
-  padding: 20px;
+	padding: 20px;
 }
-.flex-grid { 
-  margin: 0 0 20px 0;
+.flex-grid {
+	margin: 0 0 20px 0;
 }
-.col {
-  background: salmon;
+.selected {
   padding: 20px;
+	background: green;
+}
+.unselected {
+  padding: 20px;
+	background: salmon;
 }
 .flex-grid-center {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 100%;
 }
 
-.column-center-side{
-  display: flex;
-  flex-direction: column;
-  height:300px;
-  flex: 1;
+.column-center-side {
+	display: flex;
+	flex-direction: column;
+	height: 300px;
+	flex: 1;
 }
 
-.column-center-middle{
-  display: flex;
-  flex-direction: column;
-  flex-basis: 100%;
-  flex: 4;
-  height:300px;
-}
-
-.orange-column {
-  background-color: orange;
-  height: 100%;
+.column-center-middle {
+	display: flex;
+	flex-direction: column;
+	flex-basis: 100%;
+	flex: 4;
+	height: 300px;
 }
 
 .blue-column {
-  background-color: lightblue;
-  height: 100%;
-}
-
-.green-column {
-  background-color: green;
-  height: 100%;
+	background-color: lightblue;
+	height: 100%;
 }

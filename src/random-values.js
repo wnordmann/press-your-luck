@@ -24,7 +24,8 @@ export const PRIZEVALUES = [
 		'prize',
 		51,
 		36,
-		62
+		62,
+		'prize'
 	],
 	[
 		50,
@@ -51,7 +52,8 @@ export const PRIZEVALUES = [
 		48,
 		'whammy',
 		69,
-		47
+		47,
+		80
 	],
 	[
 		29,
@@ -78,7 +80,8 @@ export const PRIZEVALUES = [
 		'whammy',
 		24,
 		79,
-		61
+		61,
+		30
 	],
 	[
 		42,
@@ -105,6 +108,7 @@ export const PRIZEVALUES = [
 		59,
 		'whammy',
 		46,
-		72
+		72,
+		'whammy'
 	]
 ];

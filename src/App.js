@@ -17,10 +17,16 @@ class App extends Component {
 	componentDidMount() {
 		this.interval = setInterval(() => this.tick(), 800);
 	}
+	componentWillMount() {
+		document.addEventListener('keydown', this.onKeyPress.bind(this));
+	}
 	componentWillUnmount() {
 		clearInterval(this.interval);
 	}
 	tick() {
+		if (this.state.tickCouter === 99) {
+			return 0;
+		}
 		const newTick = this.state.tickCouter === 3 ? 0 : this.state.tickCouter + 1;
 		this.setState({ tickCouter: newTick });
 
@@ -31,7 +37,16 @@ class App extends Component {
 
 		this.setState({ selected: Math.floor(Math.random() * 24) });
 	}
-
+	onKeyPress(event) {
+		if (event.key === 'Enter') {
+			console.log('enter press here! ');
+			this.setState({ tickCouter: 0 });
+		}
+		if (event.key === ' ') {
+			console.log('space press here! ');
+			this.setState({ tickCouter: 99 });
+		}
+	}
 	render() {
 		// fetch('https://gph.is/1LaRgeN').then((response) => response.text()).then((text) => {
 		// 	const parser = new DOMParser();
@@ -41,93 +56,46 @@ class App extends Component {
 		// 	console.log(meta.content);
 		// 	this.setState({ image: meta.content });
 		// });
-		const randomSet = 0;
 		return (
 			<div className="App">
 				<div className="flex-grid-edge">
-					<div className="col">
-						<Square {...this.state} location={0} />
-					</div>
-					<div className="col">
-						<Square {...this.state} location={1} />
-					</div>
-					<div className="col">
-						<Square {...this.state} location={2} />
-					</div>
-					<div className="col">
-						<Square {...this.state} location={3} />
-					</div>
-					<div className="col">
-						<Square {...this.state} location={4} />
-					</div>
-					<div className="col">
-						<Square {...this.state} location={5} />
-					</div>
-					<div className="col">
-						<Square {...this.state} location={6} />
-					</div>
-					<div className="col">
-						<Square {...this.state} location={7} />
-					</div>
+					<Square {...this.state} location={0} />
+					<Square {...this.state} location={1} />
+					<Square {...this.state} location={2} />
+					<Square {...this.state} location={3} />
+					<Square {...this.state} location={4} />
+					<Square {...this.state} location={5} />
+					<Square {...this.state} location={6} />
+					<Square {...this.state} location={7} />
 				</div>
 				<div className="flex-grid-center">
 					<div className="column-center-side">
-						<div className="green-column">
-							<Square {...this.state} location={16} />
-						</div>
-						<div className="green-column">
-							<Square {...this.state} location={17} />
-						</div>
-						<div className="green-column">
-							<Square {...this.state} location={18} />
-						</div>
-						<div className="green-column">
-							<Square {...this.state} location={19} />
-						</div>
+						<Square {...this.state} location={16} />
+						<Square {...this.state} location={17} />
+						<Square {...this.state} location={18} />
+						<Square {...this.state} location={19} />
+						<Square {...this.state} location={25} />
 					</div>
 					<div className="column-center-middle">
 						<div className="blue-column">{/* <img src={this.state.image} alt="logo" /> */}</div>
 					</div>
 					<div className="column-center-side">
-						<div className="green-column">
-							<Square {...this.state} location={20} />
-						</div>
-						<div className="green-column">
-							<Square {...this.state} location={21} />
-						</div>
-						<div className="green-column">
-							<Square {...this.state} location={22} />
-						</div>
-						<div className="green-column">
-							<Square {...this.state} location={23} />
-						</div>
+						<Square {...this.state} location={20} />
+						<Square {...this.state} location={21} />
+						<Square {...this.state} location={22} />
+						<Square {...this.state} location={23} />
+						<Square {...this.state} location={24} />
 					</div>
 				</div>
 				<div className="flex-grid-edge">
-					<div className="col">
-						<Square {...this.state} location={8} />
-					</div>
-					<div className="col">
-						<Square {...this.state} location={9} />
-					</div>
-					<div className="col">
-						<Square {...this.state} location={10} />
-					</div>
-					<div className="col">
-						<Square {...this.state} location={11} />
-					</div>
-					<div className="col">
-						<Square {...this.state} location={12} />
-					</div>
-					<div className="col">
-						<Square {...this.state} location={13} />
-					</div>
-					<div className="col">
-						<Square {...this.state} location={14} />
-					</div>
-					<div className="col">
-						<Square {...this.state} location={15} />
-					</div>
+					<Square {...this.state} location={8} />
+					<Square {...this.state} location={9} />
+					<Square {...this.state} location={10} />
+					<Square {...this.state} location={11} />
+					<Square {...this.state} location={12} />
+					<Square {...this.state} location={13} />
+					<Square {...this.state} location={14} />
+					<Square {...this.state} location={15} />
 				</div>
 			</div>
 		);
