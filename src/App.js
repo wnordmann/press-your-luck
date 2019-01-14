@@ -73,13 +73,14 @@ class App extends Component {
 		}
 	}
 	getGiphy(good) {
-		let image = '';
 		if (good) {
-			image = GOODLOCAL[Math.floor(Math.random() * GOODLOCAL.length)];
-			this.setState({ image: `/goodGiphys/${image}` });
+			const imageFile = require(`./goodGiphys/${GOODLOCAL[Math.floor(Math.random() * GOODLOCAL.length)]}`);
+			// image = GOODLOCAL[Math.floor(Math.random() * GOODLOCAL.length)];
+			this.setState({ image: imageFile });
 		} else {
-			image = BADLOCAL[Math.floor(Math.random() * BADLOCAL.length)];
-			this.setState({ image: `/badGiphys/${image}` });
+			// image = BADLOCAL[Math.floor(Math.random() * BADLOCAL.length)];
+			const imageFile = require(`./badGiphys/${BADLOCAL[Math.floor(Math.random() * BADLOCAL.length)]}`);
+			this.setState({ image: imageFile });
 		}
 	}
 
