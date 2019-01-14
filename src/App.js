@@ -24,6 +24,8 @@ class App extends Component {
 	}
 	componentWillMount() {
 		document.addEventListener('keydown', this.onKeyPress.bind(this));
+		const graphImage = require('./goodGiphys/200.gif');
+		this.setState({ image: graphImage });
 	}
 	componentWillUnmount() {
 		clearInterval(this.interval);
