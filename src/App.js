@@ -74,10 +74,10 @@ class App extends Component {
 		let image = '';
 		if (good) {
 			image = GOODLOCAL[Math.floor(Math.random() * GOODLOCAL.length)];
-			this.setState({ image: `https://github.com/wnordmann/press-your-luck/tree/gh-pages/goodGiphys/${image}` });
+			this.setState({ image: `/goodGiphys/${image}` });
 		} else {
 			image = BADLOCAL[Math.floor(Math.random() * BADLOCAL.length)];
-			this.setState({ image: `https://github.com/wnordmann/press-your-luck/tree/gh-pages/badGiphys/${image}` });
+			this.setState({ image: `/badGiphys/${image}` });
 		}
 	}
 
