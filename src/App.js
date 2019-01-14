@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import { GOOD, BAD } from './animations';
+import { GOODLOCAL, BADLOCAL } from './animations';
 import Square from './square';
 import { PRIZEVALUES } from './random-values';
 import loader from './loader2.gif';
+import download from 'downloadjs';
 
 class App extends Component {
 	constructor() {
@@ -13,12 +14,13 @@ class App extends Component {
 			selected: 0,
 			randomIndex: 0,
 			tickCouter: 0,
-			score: ''
+			score: '',
+			counter: 0
 		};
 	}
 
 	componentDidMount() {
-		this.interval = setInterval(() => this.tick(), 100);
+		this.interval = setInterval(() => this.tick(), 200);
 	}
 	componentWillMount() {
 		document.addEventListener('keydown', this.onKeyPress.bind(this));
@@ -27,6 +29,11 @@ class App extends Component {
 		clearInterval(this.interval);
 	}
 	tick() {
+		// if (this.state.counter < BAD.length) {
+		// 	const image = BAD[this.state.counter];
+		// 	this.getFile(image, this.state.counter);
+		// 	this.setState({ counter: this.state.counter + 1 });
+		// }
 		// pause state
 		if (this.state.tickCouter === 99) {
 			return 0;
@@ -66,20 +73,26 @@ class App extends Component {
 	getGiphy(good) {
 		let image = '';
 		if (good) {
-			image = GOOD[Math.floor(Math.random() * GOOD.length)];
+			image = GOODLOCAL[Math.floor(Math.random() * GOODLOCAL.length)];
+			this.setState({ image: `/goodGiphys/${image}` });
 		} else {
-			image = BAD[Math.floor(Math.random() * BAD.length)];
+			image = BADLOCAL[Math.floor(Math.random() * BADLOCAL.length)];
+			this.setState({ image: `/badGiphys/${image}` });
 		}
-		console.log(image);
+	}
+
+	// Hacky library to bulk download files so they can be used locally
+	getFile(file, counter) {
 		const proxy = 'https://cors-anywhere.herokuapp.com/';
-		fetch(proxy + image).then((response) => response.text()).then((text) => {
+		fetch(proxy + file).then((response) => response.text()).then((text) => {
 			const parser = new DOMParser();
 			const htmlDocument = parser.parseFromString(text, 'text/html');
 			const section = htmlDocument.documentElement.querySelector('head');
 			const meta = section.querySelector('meta[property="og:image"]');
-			this.setState({ image: meta.content });
+			download(meta.content);
 		});
 	}
+
 	render() {
 		return (
 			<div className="App">
