@@ -48,7 +48,7 @@ flex-grid-center {
 	display: flex;
 	flex-direction: row;
 }
-@media (max-width: 400px) {
+/* @media (max-width: 400px) {
 	.flex-grid,
 	.flex-grid-thirds {
 		display: block;
@@ -57,7 +57,7 @@ flex-grid-center {
 			margin: 0 0 10px 0;
 		}
 	}
-}
+} */
 
 * {
 	box-sizing: border-box;
