@@ -24,8 +24,8 @@ class App extends Component {
 	}
 	componentWillMount() {
 		document.addEventListener('keydown', this.onKeyPress.bind(this));
-		const graphImage = require('./goodGiphys/200.gif');
-		this.setState({ image: graphImage });
+		// const graphImage = require('./goodGiphys/200.gif');
+		// this.setState({ image: graphImage });
 	}
 	componentWillUnmount() {
 		clearInterval(this.interval);
@@ -74,12 +74,12 @@ class App extends Component {
 	}
 	getGiphy(good) {
 		if (good) {
-			const imageFile = require(`./goodGiphys/${GOODLOCAL[Math.floor(Math.random() * GOODLOCAL.length)]}`);
-			// image = GOODLOCAL[Math.floor(Math.random() * GOODLOCAL.length)];
+			const file = GOODLOCAL[Math.floor(Math.random() * GOODLOCAL.length)];
+			const imageFile = require(`./goodGiphys/${file}`); // image = GOODLOCAL[Math.floor(Math.random() * GOODLOCAL.length)];
 			this.setState({ image: imageFile });
 		} else {
-			// image = BADLOCAL[Math.floor(Math.random() * BADLOCAL.length)];
-			const imageFile = require(`./badGiphys/${BADLOCAL[Math.floor(Math.random() * BADLOCAL.length)]}`);
+			const file = BADLOCAL[Math.floor(Math.random() * BADLOCAL.length)];
+			const imageFile = require(`./badGiphys/${file}`);
 			this.setState({ image: imageFile });
 		}
 	}
