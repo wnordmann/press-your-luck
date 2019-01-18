@@ -1,7 +1,7 @@
 {
   "main.css": "/press-your-luck/static/css/main.e74ebd33.chunk.css",
-  "main.js": "/press-your-luck/static/js/main.fc61d9ea.chunk.js",
-  "main.js.map": "/press-your-luck/static/js/main.fc61d9ea.chunk.js.map",
+  "main.js": "/press-your-luck/static/js/main.ce0b1970.chunk.js",
+  "main.js.map": "/press-your-luck/static/js/main.ce0b1970.chunk.js.map",
   "static/js/1.37e30243.chunk.js": "/press-your-luck/static/js/1.37e30243.chunk.js",
   "static/js/1.37e30243.chunk.js.map": "/press-your-luck/static/js/1.37e30243.chunk.js.map",
   "runtime~main.js": "/press-your-luck/static/js/runtime~main.4209fa0a.js",
@@ -95,6 +95,6 @@
   "static/media/flat.csv": "/press-your-luck/static/media/flat.537ce3ee.csv",
   "static/css/main.e74ebd33.chunk.css.map": "/press-your-luck/static/css/main.e74ebd33.chunk.css.map",
   "index.html": "/press-your-luck/index.html",
-  "precache-manifest.c998bf943f08817c8f2858b3ea9594de.js": "/press-your-luck/precache-manifest.c998bf943f08817c8f2858b3ea9594de.js",
+  "precache-manifest.e0f7760680b5efc2d2e1f696de7249bb.js": "/press-your-luck/precache-manifest.e0f7760680b5efc2d2e1f696de7249bb.js",
   "service-worker.js": "/press-your-luck/service-worker.js"
 }
