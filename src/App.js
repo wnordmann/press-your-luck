@@ -61,15 +61,18 @@ class App extends Component {
 		if (event.key === 'Enter' || (event.key === ' ' && this.state.tickCouter === 99)) {
 			this.setState({ tickCouter: 3 });
 		} else if (event.key === ' ') {
-			const score = PRIZEVALUES[this.state.randomIndex][this.state.selected];
-			const tickCouter = 99;
-			const image = loader;
-			this.setState({ score, tickCouter, image });
-			if (this.state.score === 'whammy') {
-				this.getGiphy(false);
-			} else {
-				this.getGiphy(true);
-			}
+			this.pressYourLuckEvent();
+		}
+	}
+	pressYourLuckEvent() {
+		const score = PRIZEVALUES[this.state.randomIndex][this.state.selected];
+		const tickCouter = 99;
+		const image = loader;
+		this.setState({ score, tickCouter, image });
+		if (this.state.score === 'whammy') {
+			this.getGiphy(false);
+		} else {
+			this.getGiphy(true);
 		}
 	}
 	getGiphy(good) {
@@ -142,6 +145,13 @@ class App extends Component {
 					<Square {...this.state} location={15} />
 				</div>
 				<div>{this.state.score}</div>
+				<button className='pressyouluck'
+					onClick={() => {
+						this.pressYourLuckEvent();
+					}}
+				>
+					PRESS YOUR LUCK
+				</button>
 			</div>
 		);
 	}
