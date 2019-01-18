@@ -5,6 +5,9 @@ import Square from './square';
 import { PRIZEVALUES } from './random-values';
 import loader from './loader2.gif';
 
+const WHAMMY = 'whammy';
+const PRIZE = 'prize';
+
 class App extends Component {
 	constructor() {
 		super();
@@ -13,9 +16,8 @@ class App extends Component {
 			selected: 0,
 			randomIndex: 0,
 			tickCouter: 0,
-			score: '',
+			score: 'Press Your Luck',
 			counter: 0,
-			buttonText: 'Press Your Luck',
 			luck: ''
 		};
 	}
@@ -25,8 +27,6 @@ class App extends Component {
 	}
 	componentWillMount() {
 		document.addEventListener('keydown', this.onKeyPress.bind(this));
-		// const graphImage = require('./goodGiphys/200.gif');
-		// this.setState({ image: graphImage });
 	}
 	componentWillUnmount() {
 		clearInterval(this.interval);
@@ -59,25 +59,19 @@ class App extends Component {
 		this.setState({ selected: Math.floor(Math.random() * 24) });
 	}
 	onKeyPress(event) {
-		// if (event.key === 'Enter' || (event.key === ' ' && this.state.tickCouter === 99)) {
-		// 	this.setState({ tickCouter: 3 });
-		// } else if (event.key === ' ') {
 		this.pressYourLuckEvent();
-		// }
 	}
 	pressYourLuckEvent() {
 		if (this.state.tickCouter === 99) {
-			this.setState({ tickCouter: 3, buttonText: 'Press Your Luck', luck: '' });
+			this.setState({ tickCouter: 3, luck: '', score: 'Press Your Luck', image: '' });
 			return;
 		}
 
 		const score = PRIZEVALUES[this.state.randomIndex][this.state.selected];
 		const tickCouter = 99;
-		const image = loader;
-		const buttonText = 'Good Job';
-		const luck = this.state.score === 'whammy' ? 'whammy' : 'prize';
-		this.setState({ score, tickCouter, image, buttonText, luck });
-		if (this.state.score === 'whammy') {
+		const luck = score === WHAMMY ? WHAMMY : PRIZE;
+		this.setState({ score, tickCouter, luck });
+		if (score === WHAMMY) {
 			this.getGiphy(false);
 		} else {
 			this.getGiphy(true);
@@ -108,8 +102,14 @@ class App extends Component {
 	// }
 
 	render() {
+		let appClass = 'App';
+		if (this.state.luck === PRIZE) {
+			appClass = 'AppPrize';
+		} else if (this.state.luck === WHAMMY) {
+			appClass = 'AppWhammy';
+		}
 		return (
-			<div className="App">
+			<div className={appClass}>
 				<div>Press Space Bar</div>
 				<div className="flex-grid-edge">
 					<Square {...this.state} location={0} />
@@ -152,14 +152,13 @@ class App extends Component {
 					<Square {...this.state} location={14} />
 					<Square {...this.state} location={15} />
 				</div>
-				<div>{this.state.score}</div>
 				<button
 					className="pressyouluck"
 					onClick={() => {
 						this.pressYourLuckEvent();
 					}}
 				>
-					{this.state.buttonText}
+					{this.state.score}
 				</button>
 			</div>
 		);
