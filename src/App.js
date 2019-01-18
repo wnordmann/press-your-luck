@@ -58,13 +58,18 @@ class App extends Component {
 		this.setState({ selected: Math.floor(Math.random() * 24) });
 	}
 	onKeyPress(event) {
-		if (event.key === 'Enter' || (event.key === ' ' && this.state.tickCouter === 99)) {
-			this.setState({ tickCouter: 3 });
-		} else if (event.key === ' ') {
-			this.pressYourLuckEvent();
-		}
+		// if (event.key === 'Enter' || (event.key === ' ' && this.state.tickCouter === 99)) {
+		// 	this.setState({ tickCouter: 3 });
+		// } else if (event.key === ' ') {
+		this.pressYourLuckEvent();
+		// }
 	}
 	pressYourLuckEvent() {
+		if (this.state.tickCouter === 99) {
+			this.setState({ tickCouter: 3 });
+			return;
+		}
+
 		const score = PRIZEVALUES[this.state.randomIndex][this.state.selected];
 		const tickCouter = 99;
 		const image = loader;
@@ -145,7 +150,8 @@ class App extends Component {
 					<Square {...this.state} location={15} />
 				</div>
 				<div>{this.state.score}</div>
-				<button className='pressyouluck'
+				<button
+					className="pressyouluck"
 					onClick={() => {
 						this.pressYourLuckEvent();
 					}}
