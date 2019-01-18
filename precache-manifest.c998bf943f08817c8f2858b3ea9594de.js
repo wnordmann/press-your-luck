@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "3168fcad688ab7870a50",
-    "url": "/press-your-luck/static/css/main.11b28029.chunk.css"
+    "revision": "fc61d9ea7d8239dc597c",
+    "url": "/press-your-luck/static/css/main.e74ebd33.chunk.css"
   },
   {
-    "revision": "3168fcad688ab7870a50",
-    "url": "/press-your-luck/static/js/main.3168fcad.chunk.js"
+    "revision": "fc61d9ea7d8239dc597c",
+    "url": "/press-your-luck/static/js/main.fc61d9ea.chunk.js"
   },
   {
     "revision": "37e30243251646aeaf23",
@@ -628,7 +628,7 @@ self.__precacheManifest = [
     "url": "/press-your-luck/static/media/giphy.b4631254.gif"
   },
   {
-    "revision": "281f9df8d5b8b72f8f1d5c143317a8ad",
+    "revision": "c4c2c2746fe34da4d7d18c3a7cb07ec5",
     "url": "/press-your-luck/index.html"
   }
 ];
