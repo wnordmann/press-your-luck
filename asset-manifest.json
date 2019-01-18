@@ -1,9 +1,9 @@
 {
-  "main.css": "/press-your-luck/static/css/main.e7417433.chunk.css",
-  "main.js": "/press-your-luck/static/js/main.9cb5ac1b.chunk.js",
-  "main.js.map": "/press-your-luck/static/js/main.9cb5ac1b.chunk.js.map",
-  "static/js/1.37e30243.chunk.js": "/press-your-luck/static/js/1.37e30243.chunk.js",
-  "static/js/1.37e30243.chunk.js.map": "/press-your-luck/static/js/1.37e30243.chunk.js.map",
+  "main.css": "/press-your-luck/static/css/main.6678cd62.chunk.css",
+  "main.js": "/press-your-luck/static/js/main.c383c7da.chunk.js",
+  "main.js.map": "/press-your-luck/static/js/main.c383c7da.chunk.js.map",
+  "static/js/1.fa92c112.chunk.js": "/press-your-luck/static/js/1.fa92c112.chunk.js",
+  "static/js/1.fa92c112.chunk.js.map": "/press-your-luck/static/js/1.fa92c112.chunk.js.map",
   "runtime~main.js": "/press-your-luck/static/js/runtime~main.4209fa0a.js",
   "runtime~main.js.map": "/press-your-luck/static/js/runtime~main.4209fa0a.js.map",
   "static/media/loader2.gif": "/press-your-luck/static/media/loader2.a4f2cb80.gif",
@@ -93,8 +93,8 @@
   "static/media/200 (9).gif": "/press-your-luck/static/media/200 (9).d5452877.gif",
   "static/media/200w.gif": "/press-your-luck/static/media/200w.d1739e7f.gif",
   "static/media/flat.csv": "/press-your-luck/static/media/flat.537ce3ee.csv",
-  "static/css/main.e7417433.chunk.css.map": "/press-your-luck/static/css/main.e7417433.chunk.css.map",
+  "static/css/main.6678cd62.chunk.css.map": "/press-your-luck/static/css/main.6678cd62.chunk.css.map",
   "index.html": "/press-your-luck/index.html",
-  "precache-manifest.8272cbf3bbbd8fd0a782b9abd51b3b70.js": "/press-your-luck/precache-manifest.8272cbf3bbbd8fd0a782b9abd51b3b70.js",
+  "precache-manifest.e2eff01279c921066471036a9e157082.js": "/press-your-luck/precache-manifest.e2eff01279c921066471036a9e157082.js",
   "service-worker.js": "/press-your-luck/service-worker.js"
 }
