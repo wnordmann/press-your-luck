@@ -4,7 +4,6 @@ import { GOODLOCAL, BADLOCAL } from './animations';
 import Square from './square';
 import { PRIZEVALUES } from './random-values';
 import loader from './loader2.gif';
-import download from 'downloadjs';
 
 class App extends Component {
 	constructor() {
@@ -15,12 +14,14 @@ class App extends Component {
 			randomIndex: 0,
 			tickCouter: 0,
 			score: '',
-			counter: 0
+			counter: 0,
+			buttonText: 'Press Your Luck',
+			luck: ''
 		};
 	}
 
 	componentDidMount() {
-		this.interval = setInterval(() => this.tick(), 200);
+		this.interval = setInterval(() => this.tick(), 50);
 	}
 	componentWillMount() {
 		document.addEventListener('keydown', this.onKeyPress.bind(this));
@@ -66,14 +67,16 @@ class App extends Component {
 	}
 	pressYourLuckEvent() {
 		if (this.state.tickCouter === 99) {
-			this.setState({ tickCouter: 3 });
+			this.setState({ tickCouter: 3, buttonText: 'Press Your Luck', luck: '' });
 			return;
 		}
 
 		const score = PRIZEVALUES[this.state.randomIndex][this.state.selected];
 		const tickCouter = 99;
 		const image = loader;
-		this.setState({ score, tickCouter, image });
+		const buttonText = 'Good Job';
+		const luck = this.state.score === 'whammy' ? 'whammy' : 'prize';
+		this.setState({ score, tickCouter, image, buttonText, luck });
 		if (this.state.score === 'whammy') {
 			this.getGiphy(false);
 		} else {
@@ -93,16 +96,16 @@ class App extends Component {
 	}
 
 	// Hacky library to bulk download files so they can be used locally
-	getFile(file, counter) {
-		const proxy = 'https://cors-anywhere.herokuapp.com/';
-		fetch(proxy + file).then((response) => response.text()).then((text) => {
-			const parser = new DOMParser();
-			const htmlDocument = parser.parseFromString(text, 'text/html');
-			const section = htmlDocument.documentElement.querySelector('head');
-			const meta = section.querySelector('meta[property="og:image"]');
-			download(meta.content);
-		});
-	}
+	// getFile(file, counter) {
+	// 	const proxy = 'https://cors-anywhere.herokuapp.com/';
+	// 	fetch(proxy + file).then((response) => response.text()).then((text) => {
+	// 		const parser = new DOMParser();
+	// 		const htmlDocument = parser.parseFromString(text, 'text/html');
+	// 		const section = htmlDocument.documentElement.querySelector('head');
+	// 		const meta = section.querySelector('meta[property="og:image"]');
+	// 		download(meta.content);
+	// 	});
+	// }
 
 	render() {
 		return (
@@ -156,7 +159,7 @@ class App extends Component {
 						this.pressYourLuckEvent();
 					}}
 				>
-					PRESS YOUR LUCK
+					{this.state.buttonText}
 				</button>
 			</div>
 		);

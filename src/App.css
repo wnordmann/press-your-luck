@@ -1,13 +1,14 @@
 .App {
 	text-align: center;
+	font-size: 2em;
 }
 
-.App-logo {
+/* .App-logo {
 	animation: App-logo-spin infinite 20s linear;
 	height: 40vmin;
-}
+} */
 
-.App-header {
+/* .App-header {
 	background-color: #282c34;
 	min-height: 100vh;
 	display: flex;
@@ -16,7 +17,7 @@
 	justify-content: center;
 	font-size: calc(10px + 2vmin);
 	color: white;
-}
+} */
 
 .App-link {
 	color: #61dafb;
@@ -74,13 +75,21 @@ body {
 }
 .unselected {
 	padding: 20px;
-	background: salmon;
+	background: cornflowerblue;
+}
+.prize {
+	padding: 20px;
+	background: aquamarine;
+}
+.whammy {
+	padding: 20px;
+	background: orangered;
 }
 .flex-grid-center {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	width: 100%;
+	height: 500px;
 }
 
 .column-center-side {
@@ -95,7 +104,7 @@ body {
 	flex-direction: column;
 	flex-basis: 100%;
 	flex: 4;
-	height: 300px;
+	height: 500px;
 }
 
 .blue-column {
@@ -103,9 +112,31 @@ body {
 	height: 100%;
 }
 .giphy {
-	max-height: 300px;
+	height: 450px;
+	max-width: 800px;
 }
 .pressyouluck {
 	height: 200px;
-	width: 200px;
+	width: 400px;
+	font-size: 20px;
+	bottom: 10px;
+}
+.modal-backdrop-orange {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: orange;
+	opacity: 0.6;
+	width: 100%;
+	height: 100%;
+	z-index: 1040;
+}
+.modal-backdrop-blue {
+	background-color: blue;
+	opacity: 0.6;
+}
+.modal-transition {
+	transition: all 0.4s ease;
 }
