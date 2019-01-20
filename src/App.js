@@ -18,15 +18,29 @@ class App extends Component {
 			tickCouter: 0,
 			score: 'Press Your Luck',
 			counter: 0,
-			luck: ''
+			luck: '',
+			goodImage: [],
+			badImage: []
 		};
 	}
 
 	componentDidMount() {
 		this.interval = setInterval(() => this.tick(), 50);
+		// for (let i = 0; i <= GOODLOCAL.length; i++) {
+		// 	this.goodImage.push = require(`./goodGiphys/${GOODLOCAL[i]}`);
+		// }
+		// for (let i = 0; i <= BADLOCAL.length; i++) {
+		// 	this.badImage.push = require(`./goodGiphys/${BADLOCAL[i]}`);
+		// }
 	}
 	componentWillMount() {
 		document.addEventListener('keydown', this.onKeyPress.bind(this));
+		// for (let i = 0; i <= GOODLOCAL.length; i++) {
+		// 	this.goodImage.push = require(`./goodGiphys/${GOODLOCAL[i]}`);
+		// }
+		// for (let i = 0; i <= BADLOCAL.length; i++) {
+		// 	this.badImage.push = require(`./goodGiphys/${BADLOCAL[i]}`);
+		// }
 	}
 	componentWillUnmount() {
 		clearInterval(this.interval);
@@ -58,7 +72,7 @@ class App extends Component {
 		// Update selected every 30% of tick
 		this.setState({ selected: Math.floor(Math.random() * 24) });
 	}
-	onKeyPress(event) {
+	onKeyPress() {
 		this.pressYourLuckEvent();
 	}
 	pressYourLuckEvent() {
@@ -81,10 +95,12 @@ class App extends Component {
 		if (good) {
 			const file = GOODLOCAL[Math.floor(Math.random() * GOODLOCAL.length)];
 			const imageFile = require(`./goodGiphys/${file}`); // image = GOODLOCAL[Math.floor(Math.random() * GOODLOCAL.length)];
+			// const imageFile = this.goodImage[file];
 			this.setState({ image: imageFile });
 		} else {
 			const file = BADLOCAL[Math.floor(Math.random() * BADLOCAL.length)];
 			const imageFile = require(`./badGiphys/${file}`);
+			// const imageFile = this.badImage[file];
 			this.setState({ image: imageFile });
 		}
 	}
